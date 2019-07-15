@@ -20,11 +20,23 @@ def selection_sort( arr ):
 
 # TO-DO:  implement the Bubble Sort function below
 def bubble_sort( arr ):
+    num_changes = -1
+    while num_changes != 0: #Keep going until you haven't had to change anything
+        #reset num_changes to 0
+        num_changes = 0
+
+        for i in range(0, len(arr) - 1):
+            if arr[i] > arr[i + 1]:
+                num_changes += 1
+                big = arr[i]
+                arr[i] = arr[i + 1]
+                arr[i + 1] = big
+
 
     return arr
 
 
 # STRETCH: implement the Count Sort function below
-def count_sort( arr, maximum=-1 ):
+# def count_sort( arr, maximum=-1 ):
 
-    return arr
+#     return arr
