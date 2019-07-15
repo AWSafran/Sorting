@@ -43,6 +43,32 @@ def bubble_sort( arr ):
 
 
 # STRETCH: implement the Count Sort function below
-# def count_sort( arr, maximum=-1 ):
+def count_sort( arr, maximum=-1 ):
+    
+    final_array = []
+    
+    #check for empty array
+    if len(arr) == 0:
+        return []
 
-#     return arr
+    if min(arr) < 0:
+        return "Error, negative numbers not allowed in Count Sort"
+    
+    #initialize count array
+    count_array = [0] * (max(arr) + 1)
+    
+    for i in range(0, len(arr)):
+        count_array[arr[i]] += 1
+    
+    # turn individual counts into running total
+    for i in range(1, len(count_array)):
+        count_array[i] += count_array[i-1]
+    
+    
+    counter = 0
+    for i in range(0, len(count_array)):
+        while counter < count_array[i]:
+            final_array.append(i)
+            counter += 1
+
+    return final_array
